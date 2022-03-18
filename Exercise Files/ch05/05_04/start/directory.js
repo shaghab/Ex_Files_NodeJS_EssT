@@ -1,9 +1,13 @@
 const fs = require("fs");
 
-fs.mkdir("storage-files", (err) => {
-  if (err) {
-    throw err;
-  }
+if (fs.existsSync("storage-files")) {
+  console.log("Already there");
+} else {
+  fs.mkdir("storage-files", (err) => {
+    if (err) {
+      throw err;
+    }
 
-  console.log("director created");
-});
+    console.log("director created");
+  });
+}
